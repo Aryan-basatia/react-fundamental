@@ -1,15 +1,7 @@
-
-import './App.css'
-import Greeting from './components/Greeting'
+import Profile from "./components/Profile";
 
 function App() {
-
-  return (
-    <>
-    <h1>Hello React</h1>
-    <Greeting />
-    </>
-  )
+  return <Profile />;
 }
 
-export default App
+export default App;
