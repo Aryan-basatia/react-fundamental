@@ -5,7 +5,27 @@ function App() {
     console.log(name);
   }
   return (
-    <UserCard name="Aryan" role="Admin" onClick={() => handleClick("Admin")} />
+    <>
+      <UserCard
+        name="Aryan"
+        role="Tutor"
+        onClick={() => handleClick("Admin")}
+      />
+      <UserCard
+        name="Ravan"
+        onClick={() => handleClick("Admin")}
+      />
+      <UserCard
+        name="Rajesh"
+        role="Owner"
+        onClick={() => handleClick("Admin")}
+      />
+      <UserCard
+        name="Ruchi"
+        role="Divorce officer"
+        onClick={() => handleClick("Admin")}
+      />
+    </>
   );
 }
 
