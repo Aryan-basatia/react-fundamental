@@ -1,7 +1,12 @@
-import Profile from "./components/Profile";
+import UserCard from "./components/UserCard";
 
 function App() {
-  return <Profile />;
+  function handleClick(name) {
+    console.log(name);
+  }
+  return (
+    <UserCard name="Aryan" role="Admin" onClick={() => handleClick("Admin")} />
+  );
 }
 
 export default App;
