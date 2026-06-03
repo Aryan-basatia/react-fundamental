@@ -2,8 +2,12 @@
 import Greeting from "./components/Greeting";
 import Profile from "./components/Profile"; */
 
+import LoginStatus from "./components/LoginStatus";
+
+/* 
+import PlayerScore from "./components/PLayerScore"; */
 import { useState } from "react";
-import PlayerScore from "./components/PLayerScore";
+import NotificationBadge from "./components/NotificationBadge";
 
 /* import Counter from "./components/Counter";
 import ToggleText from "./components/ToggleText";
@@ -16,7 +20,7 @@ function App() {
     console.log(name);
   } */
 
-  const [score1,setScore1] = useState(0);
+ /*  const [score1,setScore1] = useState(0);
   const [score2,setScore2] = useState(0);
 
   function onIncrement1(){
@@ -29,7 +33,15 @@ function App() {
   function onReset(){
     setScore1(0);
     setScore2(0);
-  }
+  } */
+
+    const [isLoggedIn,setIsLoggedIn] = useState(true);
+
+    function toggleLogin(){
+      setIsLoggedIn(prev => !prev)
+    }
+    const count = 0;
+
 
 
   return (
@@ -57,11 +69,13 @@ function App() {
         <ToggleText/>
         <UserForm /> */}
 
-        <PlayerScore name="player1" score={score1} onIncrement={onIncrement1}/>
+     {/*    <PlayerScore name="player1" score={score1} onIncrement={onIncrement1}/>
         <button  className="btn1" onClick={onReset}>Reset</button>
-        <PlayerScore name="player2" score={score2} onIncrement={onIncrement2}/>
+        <PlayerScore name="player2" score={score2} onIncrement={onIncrement2}/> */}
         
 
+        <LoginStatus isLoggedIn={isLoggedIn} toggleLogin={toggleLogin}/>
+        {count > 0&&<NotificationBadge count={count}/>}
     </>
   );
 }
