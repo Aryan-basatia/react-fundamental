@@ -1,82 +1,64 @@
-/* import UserCard from "./components/UserCard";
-import Greeting from "./components/Greeting";
-import Profile from "./components/Profile"; */
-
-import LoginStatus from "./components/LoginStatus";
-
-/* 
-import PlayerScore from "./components/PLayerScore"; */
 import { useState } from "react";
-import NotificationBadge from "./components/NotificationBadge";
+import TaskItem from "./components/TaskItem";
 
-/* import Counter from "./components/Counter";
-import ToggleText from "./components/ToggleText";
-import UserForm from "./components/UserForm"; */
-
-
+const initialTasks = [
+  { id: 1, text: "Buy groceries", done: false },
+  { id: 2, text: "Walk the dog", done: true },
+  { id: 3, text: "Finish React project", done: false },
+  { id: 4, text: "Call the dentist", done: false },
+  { id: 5, text: "Read 20 pages", done: true },
+  { id: 6, text: "Clean the kitchen", done: false },
+];
 
 function App() {
-  /* function handleClick(name) {
-    console.log(name);
-  } */
+  const [tasks, setTasks] = useState(initialTasks);
+  const [filter, setFilter] = useState("All");
 
- /*  const [score1,setScore1] = useState(0);
-  const [score2,setScore2] = useState(0);
-
-  function onIncrement1(){
-    setScore1(prev => prev+1)
-  }
-  function onIncrement2(){
-    setScore2(prev=>prev+1)
+  function toggleId(id) {
+    setTasks((prev) =>
+      prev.map((t) => (t.id === id ? { ...t, done: !t.done } : t)),
+    );
   }
 
-  function onReset(){
-    setScore1(0);
-    setScore2(0);
-  } */
+  const visible = tasks.filter((t) => {
+    if (filter === "Active") return !t.done;
+    if (filter === "Completed") return t.done;
+    return true;
+  });
 
-    const [isLoggedIn,setIsLoggedIn] = useState(true);
+  const filters = ["All", "Active", "Completed"];
 
-    function toggleLogin(){
-      setIsLoggedIn(prev => !prev)
-    }
-    const count = 0;
-
-
+  const remaining = tasks.filter((t) => !t.done).length;
 
   return (
-    <>
-      {/* <Profile />
-      <Greeting />
-      <UserCard
-        name="Aryan"
-        role="Tutor"
-        onClick={() => handleClick("Admin")}
-      />
-      <UserCard name="Ravan" onClick={() => handleClick("Admin")} />
-      <UserCard
-        name="Rajesh"
-        role="Owner"
-        onClick={() => handleClick("Admin")}
-      />
-      <UserCard
-        name="Ruchi"
-        role="Divorce officer"
-        onClick={() => handleClick("Admin")}
-      /> */}
+    <main className="app">
+      <header className="app-header">
+        <h1>My Tasks</h1>
+        <p className="subtitle">
+          {remaining} remaining — {tasks.length} total
+        </p>
+      </header>
 
-        {/* <Counter/>
-        <ToggleText/>
-        <UserForm /> */}
+      <div className="controls">
+        <div className="filters">
+          {filters.map((f) => (
+            <button
+              key={f}
+              className={`filter-btn ${filter === f ? "active" : ""}`}
+              onClick={() => setFilter(f)}
+            >
+              {f}
+            </button>
+          ))}
+        </div>
+      </div>
 
-     {/*    <PlayerScore name="player1" score={score1} onIncrement={onIncrement1}/>
-        <button  className="btn1" onClick={onReset}>Reset</button>
-        <PlayerScore name="player2" score={score2} onIncrement={onIncrement2}/> */}
-        
-
-        <LoginStatus isLoggedIn={isLoggedIn} toggleLogin={toggleLogin}/>
-        {count > 0&&<NotificationBadge count={count}/>}
-    </>
+      <section className="task-list">
+        {visible.map((task) => (
+          <TaskItem key={task.id} task={task} onToggle={toggleId} />
+        ))}
+      </section>
+    </main>
   );
 }
 
