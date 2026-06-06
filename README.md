@@ -1,12 +1,12 @@
 # 📚 React Fundamentals - My Learning Journey
 
-Welcome to my React learning lab! This repository is my personal playground where I practice, experiment, and master React concepts step by step. It's not a single polished project—it's a collection of mini projects, components, and exercises that chronicle my journey into React development.
+Welcome to my React learning lab! This repository is my personal playground where I practice, experiment, and master React concepts step by step. It's not a single polished project—it's a collection of mini projects and exercises that demonstrate my understanding of React fundamentals.
 
 ---
 
 ## 🎯 About This Repo
 
-This is my **React Learning Log & Progress Tracker**. As I work through React tutorials, courses, and documentation, I create small components and mini projects to solidify my understanding. Each piece of code represents a concept I've studied and practiced. Think of it as my learning diary, but with code! 💻
+This is my **React Learning Log & Progress Tracker**. As I work through React tutorials, courses, and documentation, I create small components and mini projects to solidify my understanding. Each project focuses on a specific React concept, from basic component rendering to state management and event handling.
 
 ---
 
@@ -22,9 +22,9 @@ Here's everything I've practiced and implemented while working through this repo
 - **Props with Default Values** - Using default props when values aren't provided
 - **State Management with Hooks** - Using `useState` to manage component state
 - **State Immutability & Updates** - Properly updating state without mutations
-- **Event Handling** - Responding to user interactions (onClick, etc.)
+- **Event Handling** - Responding to user interactions (onClick, onChange, etc.)
 - **Conditional Rendering** - Displaying different content based on conditions (ternary operators, logical AND)
-- **Rendering Lists & Keys** - Iterating through data and rendering multiple elements
+- **Rendering Lists & Keys** - Iterating through data and rendering multiple elements with proper key usage
 - **Form Handling** - Capturing and updating user input from forms
 - **Component Lifecycle** - Understanding when components render and re-render
 
@@ -34,15 +34,16 @@ Here's everything I've practiced and implemented while working through this repo
 
 | Project | Description |
 |---------|-------------|
-| **Counter Component** | A simple counter with increment, decrement, and reset functionality |
-| **Toggle Text Component** | Toggle between displaying "Hello" and "Goodbye" text with a button |
-| **User Card Component** | Display user information (name, role) with a badge button—demonstrates props and defaults |
-| **Login Status Component** | Show different content based on login state; demonstrates conditional rendering |
-| **User Form Component** | Update user object (name and email) dynamically; shows object state management |
-| **Player Score Game** | Two-player scoring system with winner announcement when score > 5 |
-| **Greeting Component** | My first React component documenting the start of my learning journey |
-| **Profile Component** | Display user profile with dynamic date; shows data binding |
-| **Notification Badge Component** | Show a notification count conditionally; returns null when count is 0 |
+| **Task List App** | A fully functional to-do application with task toggling, filtering (All/Active/Completed), and task counter—demonstrates state management, list rendering with keys, and dynamic filtering |
+| **Counter Component** | A simple counter with increment, decrement, and reset functionality—demonstrates basic state management and event handlers |
+| **Toggle Text Component** | Toggle between displaying "Hello" and "Goodbye" text with a button—demonstrates conditional rendering with useState |
+| **User Card Component** | Display user information (name, role) with a badge button—demonstrates props and default props usage |
+| **Login Status Component** | Show different content based on login state; demonstrates conditional rendering with ternary operators |
+| **User Form Component** | Update user object (name and email) dynamically; shows object state management and form input handling |
+| **Player Score Game** | Two-player scoring system with winner announcement when score > 5—demonstrates state updates and conditional rendering |
+| **Greeting Component** | My first React component documenting the start of my learning journey—demonstrates basic JSX and component structure |
+| **Profile Component** | Display user profile with dynamic date; shows data binding and component props |
+| **Notification Badge Component** | Show a notification count conditionally; returns null when count is 0—demonstrates conditional rendering and null returns |
 
 ---
 
@@ -61,8 +62,9 @@ react-fundamental/
 │   │   ├── PLayerScore.jsx   # Two-player score tracker
 │   │   ├── Greeting.jsx      # First component - journey start
 │   │   ├── Profile.jsx       # User profile display
+│   │   ├── TaskItem.jsx      # Individual task item with checkbox
 │   │   └── NotificationBadge.jsx  # Conditional notification display
-│   ├── App.jsx              # Main app component (router for different exercises)
+│   ├── App.jsx              # Task list application with filtering
 │   ├── main.jsx             # React app entry point
 │   └── index.css            # Global styles & theme
 ├── index.html               # HTML template
@@ -73,7 +75,7 @@ react-fundamental/
 
 ### What Each Section Covers:
 - **`components/`** - My collection of React components, each practicing a specific concept
-- **`src/App.jsx`** - Main app where I toggle between different exercises (most are commented out to focus on current learning)
+- **`src/App.jsx`** - Task list application demonstrating state management, list rendering, filtering, and event handling
 - **`index.css`** - Styling with CSS variables, responsive design, and dark mode support
 
 ---
@@ -89,12 +91,14 @@ Here's a checklist of React concepts I've mastered:
 - [x] Default Props
 - [x] useState Hook
 - [x] State Updates & Immutability
-- [x] Event Handling (onClick)
+- [x] Event Handling (onClick, onChange)
 - [x] Conditional Rendering (ternary & logical AND)
 - [x] Dynamic Content Rendering
 - [x] Form Input Handling
 - [x] Object State Management
 - [x] Component Reusability
+- [x] List Rendering & Keys
+- [x] Filtering & Search
 
 ### Still Exploring 🔜
 - [ ] useEffect Hook & Side Effects
@@ -136,10 +140,9 @@ Here's a checklist of React concepts I've mastered:
    The app will open at `http://localhost:5173` (or the next available port)
 
 4. **To view a specific exercise**
-   - Open `src/App.jsx`
-   - Uncomment the component you want to test
-   - Comment out other components
-   - The browser will hot-reload automatically
+   - Open `src/App.jsx` (or specific component files)
+   - The current main app shows the Task List application
+   - The browser will hot-reload automatically when you make changes
 
 ### Build for Production
 ```bash
@@ -171,13 +174,13 @@ npm run lint
 | **eslint-plugin-react-refresh** | ^0.5.2 - Fast refresh compatibility |
 
 ### Styling
-- **CSS** (27% of repo) - Custom CSS with CSS variables, responsive design, and dark mode
+- **CSS** (42.4% of repo) - Custom CSS with CSS variables, responsive design, and dark mode
 - **No external CSS libraries** - Pure vanilla CSS for maximum learning
 
 ### Language Composition
-- **JavaScript** - 68.4%
-- **CSS** - 27%
-- **HTML** - 4.6%
+- **JavaScript** - 54.1%
+- **CSS** - 42.4%
+- **HTML** - 3.5%
 
 ---
 
@@ -202,7 +205,7 @@ This is an **actively maintained learning repository**. I update it regularly as
 ## 💡 Tips for Using This Repo
 
 - **Start with simple components** like `Greeting.jsx` and `Counter.jsx`
-- **Uncomment components in App.jsx** to see them in action
+- **Explore the Task List App** in `App.jsx` to see how components work together
 - **Read the code comments** - I often note what concept each component demonstrates
 - **Experiment!** Try modifying components, adding new features, or combining them
 - **Follow the progression** - Components get progressively more complex
@@ -211,7 +214,7 @@ This is an **actively maintained learning repository**. I update it regularly as
 
 ## 📝 Notes to Self
 
-This repo is messy by design—it's a learning space, not production code. The commented-out code in `App.jsx` represents exercises I've completed and can revisit anytime. Don't be afraid to experiment, break things, and learn from mistakes! 🎓
+This repo is messy by design—it's a learning space, not production code. The component files represent exercises I've completed and can revisit anytime. Don't be afraid to experiment, break things, and try new approaches. That's how you truly learn!
 
 ---
 
@@ -222,4 +225,4 @@ If you're also learning React and want to discuss concepts or share projects, fe
 ---
 
 **Last Updated:** June 2026  
-**Current Focus:** React Fundamentals & Hooks
+**Current Focus:** React Fundamentals & State Management
