@@ -1,4 +1,4 @@
-import { useState } from "react";
+/* import { useState } from "react";
 import TaskItem from "./components/TaskItem";
 
 const initialTasks = [
@@ -59,6 +59,49 @@ function App() {
         ))}
       </section>
     </main>
+  );
+} */
+
+import { useState } from "react";
+import ActionPanel from "./components/ActionPanel";
+
+const initialTasks = [
+  { id: 1, text: "Buy groceries", done: false },
+  { id: 2, text: "Walk the dog", done: true },
+  { id: 3, text: "Finish React project", done: false },
+  { id: 4, text: "Call the dentist", done: false },
+  { id: 5, text: "Read 20 pages", done: true },
+  { id: 6, text: "Clean the kitchen", done: false },
+];
+
+function App() {
+  const [field, setField] = useState("Update it");
+  const [tasks, setTasks] = useState(initialTasks);
+
+  function handleChange(event) {
+    setField(event);
+  }
+  function handleSubmit(event) {
+    event.preventDefault();
+  }
+
+  function handleClick(actionName) {
+    console.log(actionName);
+  }
+
+  function deleteTask(id) {
+    setTasks((prev) => prev.filter((t) => t.id !== id));
+  }
+
+  return (
+    <ActionPanel
+      handleClick={handleClick}
+      field={field}
+      handleChange={handleChange}
+      handleSubmit={handleSubmit}
+      tasks={tasks}
+      deleteTask={deleteTask}
+    />
   );
 }
 
