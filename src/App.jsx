@@ -62,7 +62,10 @@ function App() {
   );
 } */
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import WindowWidth from "./components/WindowWidth";
+
+/* import { useState } from "react";
 import ActionPanel from "./components/ActionPanel";
 
 const initialTasks = [
@@ -102,6 +105,25 @@ function App() {
       tasks={tasks}
       deleteTask={deleteTask}
     />
+  );
+} */
+
+function App() {
+
+  const [count, setCount] = useState(0);
+
+  function handleIncrement() {
+    setCount((prev) => prev + 1);
+  }
+
+  useEffect(() => {console.log(count)},[count])
+
+  return (
+    <>
+      <WindowWidth />
+      <h3>{count}</h3>
+      <button onClick={handleIncrement}>Increment</button>
+    </>
   );
 }
 
