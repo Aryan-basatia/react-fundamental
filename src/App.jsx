@@ -62,8 +62,11 @@ function App() {
   );
 } */
 
-import { useEffect, useState } from "react";
+import UserDirectory from "./components/UserDirectory";
+
+/* import { useEffect, useState } from "react";
 import WindowWidth from "./components/WindowWidth";
+import LiveClock from "./components/LiveClock"; */
 
 /* import { useState } from "react";
 import ActionPanel from "./components/ActionPanel";
@@ -108,7 +111,7 @@ function App() {
   );
 } */
 
-function App() {
+/* function App() {
 
   const [count, setCount] = useState(0);
 
@@ -121,10 +124,16 @@ function App() {
   return (
     <>
       <WindowWidth />
+      <LiveClock />
       <h3>{count}</h3>
       <button onClick={handleIncrement}>Increment</button>
     </>
   );
+} */
+function App() {
+  return <UserDirectory />
 }
+
+
 
 export default App;
