@@ -1,12 +1,12 @@
 # 📚 React Fundamentals - My Learning Journey
 
-Welcome to my React learning lab! This repository is my personal playground where I practice, experiment, and master React concepts step by step. It's not a single polished project—it's a collection of small components and mini projects that I work through to solidify my understanding.
+Welcome to my React learning lab! This repository is my personal playground where I practice, experiment, and master React concepts step by step. It's not a single polished project—it's a collection of mini projects and exercises that demonstrate core React fundamentals.
 
 ---
 
 ## 🎯 About This Repo
 
-This is my **React Learning Log & Progress Tracker**. As I work through React tutorials, courses, and documentation, I create small components and mini projects to solidify my understanding. Each project focuses on a specific React concept or combination of concepts.
+This is my **React Learning Log & Progress Tracker**. As I work through React tutorials, courses, and documentation, I create small components and mini projects to solidify my understanding. Each project focuses on one or more specific React concepts, allowing me to learn incrementally and revisit topics anytime.
 
 ---
 
@@ -49,6 +49,10 @@ Here's everything I've practiced and implemented while working through this repo
 | **Profile Component**            | Display user profile data with dynamic date using `toLocaleDateString()` — demonstrates data binding, props, and JavaScript date methods                    |
 | **Notification Badge Component** | Show notification count conditionally; returns null when count is 0 — demonstrates conditional rendering and null returns for hiding components             |
 | **Window Width Component**       | Display current window width and update on resize using `useEffect` — demonstrates useEffect hook, event listeners, and cleanup functions                  |
+| **Live Clock Component**         | Display live updating time that refreshes every second — demonstrates `useEffect` with `setInterval` and proper cleanup with `clearInterval`              |
+| **User Directory**               | Fetch and display a list of users from a JSON API with loading/error states and refresh functionality — demonstrates API integration with `fetch`, async/await, error handling, and loading states |
+| **Username Registration**        | Form input validation component that validates username length (4-20 characters) with real-time feedback — demonstrates form validation, state management, and conditional error display |
+| **Task Item Component**          | Individual task item with checkbox toggle and removal — demonstrates component composition and prop handling within the task list system                     |
 
 ---
 
@@ -71,7 +75,10 @@ react-fundamental/
 │   │   ├── TaskItem.jsx      # Individual task item with checkbox toggle
 │   │   ├── ActionPanel.jsx   # Control panel with buttons, text input, and task list
 │   │   ├── NotificationBadge.jsx  # Conditional notification count display
-│   │   └── WindowWidth.jsx   # Display and track window width with resize listener
+│   │   ├── WindowWidth.jsx   # Display and track window width with resize listener
+│   │   ├── LiveClock.jsx     # Live updating clock showing current time
+│   │   ├── UserDirectory.jsx # Fetch and display users from API with error handling
+│   │   └── UsernameRegistration.jsx # Form validation for username (4-20 chars)
 │   ├── App.jsx              # Currently showcasing WindowWidth with useEffect demo
 │   ├── main.jsx             # React app entry point
 │   └── index.css            # Global styles & theme
@@ -103,12 +110,18 @@ Here's a checklist of React concepts I've mastered:
 - [x] Event Handling (onClick, onChange)
 - [x] Conditional Rendering (ternary & logical AND)
 - [x] Dynamic Content Rendering (see `src/components/Profile.jsx`)
-- [x] Form Input Handling (see `src/components/ActionPanel.jsx`)
+- [x] Form Input Handling (see `src/components/ActionPanel.jsx`, `src/components/UsernameRegistration.jsx`)
+- [x] Form Validation (see `src/components/UsernameRegistration.jsx`)
 - [x] Object State Management (see `src/components/UserForm.jsx`)
 - [x] Component Reusability
 - [x] List Rendering & Keys (see `src/components/ActionPanel.jsx` / `src/components/TaskItem.jsx`)
 - [x] Filtering & Search (see Task List App)
-- [x] useEffect Hook & Side Effects (see `src/components/WindowWidth.jsx`)
+- [x] useEffect Hook & Side Effects (see `src/components/WindowWidth.jsx`, `src/components/LiveClock.jsx`)
+- [x] Interval & Cleanup (see `src/components/LiveClock.jsx`)
+- [x] API Integration & Fetch (see `src/components/UserDirectory.jsx`)
+- [x] Async/Await Operations (see `src/components/UserDirectory.jsx`)
+- [x] Error Handling in Components (see `src/components/UserDirectory.jsx`)
+- [x] Loading States (see `src/components/UserDirectory.jsx`)
 
 ### Still Exploring 🔜
 
@@ -116,11 +129,10 @@ Here's a checklist of React concepts I've mastered:
 - [ ] useReducer Hook
 - [ ] Custom Hooks
 - [ ] React Router
-- [ ] API Integration & Fetch
-- [ ] Error Boundaries
 - [ ] Performance Optimization
 - [ ] Testing Components
 - [ ] Advanced State Management (Redux)
+- [ ] Error Boundaries
 
 ---
 
@@ -194,14 +206,14 @@ npm run lint
 
 ### Styling
 
-- **CSS** (32.6% of repo) - Custom CSS with CSS variables, responsive design, and dark mode
+- **CSS** (28.4% of repo) - Custom CSS with CSS variables, responsive design, and dark mode
 - **No external CSS libraries** - Pure vanilla CSS for maximum learning
 
 ### Language Composition
 
-- **JavaScript** - 64.7%
-- **CSS** - 32.6%
-- **HTML** - 2.7%
+- **JavaScript** - 69.3%
+- **CSS** - 28.4%
+- **HTML** - 2.3%
 
 ---
 
@@ -219,9 +231,10 @@ This is an **actively maintained learning repository**. I update it regularly as
 
 1. ✅ Master fundamentals (components, props, state, hooks)
 2. ✅ Dive into hooks ecosystem (useState, useEffect)
-3. ⏳ Explore Context API and useReducer
-4. ⏳ Build a real-world project with routing
-5. ⏳ Learn state management and testing
+3. ✅ Explore API integration and error handling
+4. ⏳ Explore Context API and useReducer
+5. ⏳ Build a real-world project with routing
+6. ⏳ Learn state management and testing
 
 ---
 
@@ -237,7 +250,7 @@ This is an **actively maintained learning repository**. I update it regularly as
 
 ## 📝 Notes to Self
 
-This repo is messy by design—it's a learning space, not production code. The component files represent exercises I've completed and can revisit anytime. Don't be afraid to experiment, break things, and learn from mistakes. That's what this space is for!
+This repo is messy by design—it's a learning space, not production code. The component files represent exercises I've completed and can revisit anytime. Don't be afraid to experiment, break things, and learn from mistakes. That's the whole point!
 
 ---
 
@@ -250,4 +263,4 @@ aryanbasatia24@gmail.com
 ---
 
 **Last Updated:** June 2026  
-**Current Focus:** React Fundamentals & Side Effects with useEffect
+**Current Focus:** React Fundamentals, API Integration & Side Effects with useEffect
