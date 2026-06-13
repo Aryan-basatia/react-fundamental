@@ -62,7 +62,9 @@ function App() {
   );
 } */
 
-import UsernameRegistration from "./components/UsernameRegistration";
+import RegistrationForm from "./components/RegistrationForm";
+
+
 
 /* import { useEffect, useState } from "react";
 import WindowWidth from "./components/WindowWidth";
@@ -131,7 +133,7 @@ function App() {
   );
 } */
 function App() {
-  return <UsernameRegistration />
+  return <RegistrationForm/>
 }
 
 
