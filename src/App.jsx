@@ -61,11 +61,6 @@ function App() {
     </main>
   );
 } */
-
-import RegistrationForm from "./components/RegistrationForm";
-
-
-
 /* import { useEffect, useState } from "react";
 import WindowWidth from "./components/WindowWidth";
 import LiveClock from "./components/LiveClock"; */
@@ -132,10 +127,57 @@ function App() {
     </>
   );
 } */
+import Card from "./components/Card";
+import PageLayout from "./components/PageLayout";
+import Modal from "./components/Modal";
+import { useState } from "react";
+import SplitLayout from "./components/SplitLayout";
+
 function App() {
-  return <RegistrationForm/>
+  const [isOpen,setIsOpen] = useState(true)
+  return (
+    <div>
+      <PageLayout>
+        <Card>
+          <h2>How to Learn Web Development in 2026</h2>
+          <p>
+            <strong>By Aryan</strong> | June 15, 2026
+          </p>
+          <p>
+            Web development continues to evolve with AI tools, modern
+            frameworks, and cloud technologies. Here's how beginners can get
+            started...
+          </p>
+          <a href="#">Read More</a>
+        </Card>
+        <Card>
+          <div>
+            <h2>Aryan</h2>
+            <p>Frontend Developer</p>
+            <p>Email: aryan@example.com</p>
+            <button>Follow</button>
+          </div>
+        </Card>
+        <Card>
+          <div>
+            <h2>Pro Plan</h2>
+            <h3>₹999/month</h3>
+
+            <ul>
+              <li>Unlimited Projects</li>
+              <li>Priority Support</li>
+              <li>Advanced Analytics</li>
+            </ul>
+
+            <button>Choose Plan</button>
+          </div>
+        </Card>
+      </PageLayout>
+      <Modal isOpen={isOpen} onClose={() => setIsOpen(false) } title="Welcome">This is a Modal</Modal>
+      <button onClick={() => setIsOpen(true)}>open model</button>
+      <SplitLayout left={<div>left side context</div>} right={<div>Right side context</div>}/>
+    </div>
+  );
 }
-
-
 
 export default App;
