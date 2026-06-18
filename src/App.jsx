@@ -65,6 +65,9 @@ function App() {
 import WindowWidth from "./components/WindowWidth";
 import LiveClock from "./components/LiveClock"; */
 
+import Profile from "./components/Profile"
+
+
 /* import { useState } from "react";
 import ActionPanel from "./components/ActionPanel";
 
@@ -179,4 +182,13 @@ const initialTasks = [
                   </div>
                   );
                   } */
-
+function App(){
+  return (
+    <>
+  <Profile name={"Aryan"} age={18} city={"Amloha"}/>
+  <Profile name={"Rahul"} age={17} city={"Radaur"}/>
+  <Profile name={"Rajatl"} age={27} city={"Yamuna Nagar"}/>
+    </>
+  )
+}
+export default App

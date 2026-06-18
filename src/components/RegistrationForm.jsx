@@ -18,62 +18,63 @@ export default function RegistrationForm() {
   function handleSubmit(e) {
     e.preventDefault();
 
-    const newErrors = {
+    const newError = {
       name: "",
       email: "",
       password: "",
       confirmPassword: "",
     };
-
     if (form.name.trim() === "") {
-      newErrors.name = "Name is Required";
+      newError.name = "Name is Required";
     }
     if (form.email.trim() === "") {
-      newErrors.email = "email is Required";
+      newError.email = "Email is Required";
     } else if (!form.email.includes("@")) {
-      newErrors.email = "@ is Required";
+      newError.email = "@ is required";
     }
     if (form.password.trim() === "") {
-      newErrors.password = "password is Required";
+      newError.password = "password is required";
     } else if (form.password.length < 6) {
-      newErrors.password = "Password should greater then 6 character";
+      newError.password = "minimum length should be 6";
     }
     if (form.confirmPassword.trim() === "") {
-      newErrors.confirmPassword = "confirmPassword is Required";
+      newError.confirmPassword = "confirmPassword is required";
     } else if (form.confirmPassword !== form.password) {
-      newErrors.confirmPassword = "Password is not equal to confirmPassword";
+      newError.confirmPassword = "password doesnot match";
     }
+    const hasError = Object.values(newError).some((msg) => msg !== "");
 
-    const hasErrors = Object.values(newErrors).some((msg) => msg !== "");
-
-    if (hasErrors) setError(newErrors);
-    if (!hasErrors) {
+    if (hasError) setError(newError);
+    if (!hasError) {
       setSuccess(true);
-      setForm({ name: "", email: "", password: "", confirmPassword: "" });
+      setForm({
+        name: "",
+        email: "",
+        password: "",
+        confirmPassword: "",
+      });
       setError({});
     }
   }
 
   return (
-    <>
-      <form onSubmit={handleSubmit}>
-        <input name="name" value={form.name} onChange={handleChange} />
-        {error.name && <p style={{ color: "red" }}>{error.name}</p>}
-        <input name="email" value={form.email} onChange={handleChange} />
-        {error.email && <p style={{ color: "red" }}>{error.email}</p>}
-        <input name="password" value={form.password} onChange={handleChange} />
-        {error.password && <p style={{ color: "red" }}>{error.password}</p>}
-        <input
-          name="confirmPassword"
-          value={form.confirmPassword}
-          onChange={handleChange}
-        />
-        {error.confirmPassword && (
-          <p style={{ color: "red" }}>{error.confirmPassword}</p>
-        )}
-        <button type="submit">Submit</button>
-        {success && <p style={{ color: "green" }}>Registration successful!</p>}
-      </form>
-    </>
+    <form onSubmit={handleSubmit}>
+      <input name="name" value={form.name} onChange={handleChange} />
+      {error.name && <p style={{ color: "red" }}>{error.name}</p>}
+      <input name="email" value={form.email} onChange={handleChange} />
+      {error.email && <p style={{ color: "red" }}>{error.email}</p>}
+      <input name="password" value={form.password} onChange={handleChange} />
+      {error.password && <p style={{ color: "red" }}>{error.password}</p>}
+      <input
+        name="confirmPassword"
+        value={form.confirmPassword}
+        onChange={handleChange}
+      />
+      {error.confirmPassword && (
+        <p style={{ color: "red" }}>{error.confirmPassword}</p>
+      )}
+      <button type="submit">Submit</button>
+      {success && <p style={{color: "green"}}>Registration Successfull</p>}
+    </form>
   );
 }
