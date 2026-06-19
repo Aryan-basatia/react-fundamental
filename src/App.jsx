@@ -65,8 +65,8 @@ function App() {
 import WindowWidth from "./components/WindowWidth";
 import LiveClock from "./components/LiveClock"; */
 
-import Profile from "./components/Profile"
-
+import { useState } from "react";
+import Profile from "./components/Profile";
 
 /* import { useState } from "react";
 import ActionPanel from "./components/ActionPanel";
@@ -182,13 +182,23 @@ const initialTasks = [
                   </div>
                   );
                   } */
-function App(){
+function App() {
+  const [darkMode, setDarkMode] = useState(false);
   return (
-    <>
-  <Profile name={"Aryan"} age={18} city={"Amloha"}/>
-  <Profile name={"Rahul"} age={17} city={"Radaur"}/>
-  <Profile name={"Rajatl"} age={27} city={"Yamuna Nagar"}/>
-    </>
-  )
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
+      <Profile name={"Aryan"} age={18} city={"Amloha"} />
+      <Profile name={"Rahul"} age={17} city={"Radaur"} />
+      <Profile name={"Rajatl"} age={27} city={"Yamuna Nagar"} />
+      <button
+        onClick={() => {
+          document.documentElement.classList.toggle("dark");
+          setDarkMode(!darkMode);
+        }}
+        className="focus:ring-2 focus:ring-blue-500 focus:outline-none"
+      >
+        Toggle Dark Mode
+      </button>
+    </div>
+  );
 }
-export default App
+export default App;
