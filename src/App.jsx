@@ -65,8 +65,8 @@ function App() {
 import WindowWidth from "./components/WindowWidth";
 import LiveClock from "./components/LiveClock"; */
 
-import { useState } from "react";
-import Profile from "./components/Profile";
+/* import { useState } from "react";
+import Profile from "./components/Profile"; */
 
 /* import { useState } from "react";
 import ActionPanel from "./components/ActionPanel";
@@ -182,7 +182,7 @@ const initialTasks = [
                   </div>
                   );
                   } */
-function App() {
+/* function App() {
   const [darkMode, setDarkMode] = useState(false);
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
@@ -200,5 +200,34 @@ function App() {
       </button>
     </div>
   );
+} */
+import Badge from "./components/Badge";
+import Button from "./components/Button";
+import Navbar from "./components/Navbar";
+
+function App() {
+  return (
+    <>
+      <Button onClick={() => console.log("hello")} variant="primary" size="sm">
+        Primary
+      </Button>
+      <Button
+        onClick={() => console.log("hello")}
+        variant="secondary"
+        size="md"
+      >
+        Secondary
+      </Button>
+      <Button onClick={() => console.log("hello")} variant="danger" size="lg">
+        danger
+      </Button>
+      <Badge label="Active" color="green" />
+      <Badge label="InActive" color="red" />
+      <Badge label="New" color="yellow" />
+      <Badge label="Deleted" color="blue" />
+      <Navbar />
+    </>
+  );
 }
+
 export default App;
