@@ -65,7 +65,7 @@ function App() {
 import WindowWidth from "./components/WindowWidth";
 import LiveClock from "./components/LiveClock"; */
 
-import UserDirectory from "./components/UserDirectory";
+/* import UserDirectory from "./components/UserDirectory"; */
 
 /* import { useState } from "react";
 import Profile from "./components/Profile"; */
@@ -232,7 +232,6 @@ import Navbar from "./components/Navbar"; */
   );
 } */
 function App(){
-return <UserDirectory />
 }
 
 export default App;
