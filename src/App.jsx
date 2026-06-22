@@ -65,6 +65,8 @@ function App() {
 import WindowWidth from "./components/WindowWidth";
 import LiveClock from "./components/LiveClock"; */
 
+import UserDirectory from "./components/UserDirectory";
+
 /* import { useState } from "react";
 import Profile from "./components/Profile"; */
 
@@ -201,11 +203,11 @@ const initialTasks = [
     </div>
   );
 } */
-import Badge from "./components/Badge";
+/* import Badge from "./components/Badge";
 import Button from "./components/Button";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/Navbar"; */
 
-function App() {
+/* function App() {
   return (
     <>
       <Button onClick={() => console.log("hello")} variant="primary" size="sm">
@@ -228,6 +230,9 @@ function App() {
       <Navbar />
     </>
   );
+} */
+function App(){
+return <UserDirectory />
 }
 
 export default App;
