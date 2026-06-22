@@ -1,12 +1,12 @@
 # 📚 React Fundamentals - My Learning Journey
 
-Welcome to my React learning lab! This repository is my personal playground where I practice, experiment, and master React concepts step by step. It's not a single polished project—it's a collection of mini projects and components that help me solidify my understanding of React fundamentals.
+Welcome to my React learning lab! This repository is my personal playground where I practice, experiment, and master React concepts step by step. It's not a single polished project—it's a collection of mini projects and components that demonstrate my understanding of React fundamentals.
 
 ---
 
 ## 🎯 About This Repo
 
-This is my **React Learning Log & Progress Tracker**. As I work through React tutorials, courses, and documentation, I create small components and mini projects to solidify my understanding. Each project focuses on one or more React concepts, building up from basics to more advanced features.
+This is my **React Learning Log & Progress Tracker**. As I work through React tutorials, courses, and documentation, I create small components and mini projects to solidify my understanding. Each project focuses on specific React concepts and builds upon previous learnings.
 
 ---
 
@@ -50,10 +50,12 @@ Here's everything I've practiced and implemented while working through this repo
 | **Notification Badge Component** | Show notification count conditionally; returns null when count is 0 — demonstrates conditional rendering and null returns for hiding components             |
 | **Window Width Component**       | Display current window width and update on resize using `useEffect` — demonstrates useEffect hook, event listeners, and cleanup functions                  |
 | **Live Clock Component**         | Display live updating time that refreshes every second — demonstrates `useEffect` with `setInterval` and proper cleanup with `clearInterval`              |
-| **User Directory**               | Fetch and display a list of users from a JSON API with loading/error states and refresh functionality — demonstrates API integration with `fetch`, async/await |
+| **User Directory**               | Fetch and display a list of users from a JSON API with loading/error states and refresh functionality — demonstrates API integration with `fetch`, async/await, and error handling |
 | **Username Registration**        | Form input validation component that validates username length (4-20 characters) with real-time feedback — demonstrates form validation, state management, and input handling |
 | **Task Item Component**          | Individual task item with checkbox toggle and removal — demonstrates component composition and prop handling within the task list system                     |
 | **Card Component**               | Reusable wrapper component with flexible styling via className prop — demonstrates component composition and prop customization                            |
+| **Badge Component**              | Colored badge display with dynamic color classes (green, red, yellow, blue) — demonstrates component composition and conditional styling with prop-based customization |
+| **Button Component**             | Reusable button with variant (primary, secondary, danger) and size (sm, md, lg) options — demonstrates component customization through props and CSS classes |
 | **Modal Component**              | Toggle-able modal dialog that displays content with a title and close button — demonstrates conditional rendering based on isOpen state and callback props |
 | **Navbar Component**             | Navigation bar with React Router links to Home, Projects, and Contact pages — demonstrates routing and navigation between pages                           |
 | **Home Component**               | Landing page placeholder — demonstrates basic route page structure                                                                                          |
@@ -89,6 +91,8 @@ react-fundamental/
 │   │   ├── LiveClock.jsx     # Live updating clock showing current time
 │   │   ├── UserDirectory.jsx # Fetch and display users from API with error handling
 │   │   ├── UsernameRegistration.jsx # Form validation for username (4-20 chars)
+│   │   ├── Badge.jsx         # Reusable badge with color variants (green, red, yellow, blue)
+│   │   ├── Button.jsx        # Reusable button with variant and size options
 │   │   ├── Card.jsx          # Reusable card wrapper with flexible styling
 │   │   ├── Modal.jsx         # Toggle-able modal dialog component
 │   │   ├── Navbar.jsx        # Navigation bar with React Router links
@@ -111,14 +115,14 @@ react-fundamental/
 ### What Each Section Covers:
 
 - **`components/`** - My collection of React components, each practicing a specific concept
-- **`src/App.jsx`** - Main application with routing setup
-- **`index.css`** - Styling with CSS variables, responsive design, and dark mode support
+- **`src/App.jsx`** - Main application with routing setup and component imports
+- **`index.css`** - Global styling
 
 ---
 
 ## ✅ Topics Completed
 
-Here's a checklist of React concepts I've mastered:
+Here's a checklist of React concepts I've mastered (marked complete only if actual code exists):
 
 - [x] JSX Syntax & Rendering
 - [x] Functional Components
@@ -135,16 +139,17 @@ Here's a checklist of React concepts I've mastered:
 - [x] Object State Management (see `src/components/UserForm.jsx`)
 - [x] Component Reusability
 - [x] List Rendering & Keys (see `src/components/ActionPanel.jsx` / `src/components/TaskItem.jsx`)
-- [x] Filtering & Search (see Task List App)
+- [x] Filtering & Search (see Task List App - commented in `src/App.jsx`)
 - [x] useEffect Hook & Side Effects (see `src/components/WindowWidth.jsx`, `src/components/LiveClock.jsx`)
 - [x] Interval & Cleanup (see `src/components/LiveClock.jsx`)
 - [x] API Integration & Fetch (see `src/components/UserDirectory.jsx`)
 - [x] Async/Await Operations (see `src/components/UserDirectory.jsx`)
 - [x] Error Handling in Components (see `src/components/UserDirectory.jsx`)
 - [x] Loading States (see `src/components/UserDirectory.jsx`)
-- [x] React Router Basics (see `src/components/Navbar.jsx`, `src/components/Project.jsx`, `src/components/ProjectDetail.jsx`)
+- [x] React Router Basics (see `src/components/Navbar.jsx`, `src/components/Project.jsx`)
 - [x] Route Parameters with useParams (see `src/components/ProjectDetail.jsx`)
 - [x] Layout Components & Children Prop (see `src/components/PageLayout.jsx`, `src/components/Card.jsx`)
+- [x] Styled Components & Custom Styling (see `src/components/Badge.jsx`, `src/components/Button.jsx`)
 
 ### Still Exploring 🔜
 
@@ -230,13 +235,14 @@ npm run lint
 
 ### Styling
 
-- **CSS** - Custom CSS with CSS variables, responsive design, and dark mode support
+- **CSS** - Custom CSS with responsive design
 - **No external CSS libraries** - Pure vanilla CSS for maximum learning
 
 ### Language Composition
 
-- **JavaScript** - 98%
-- **HTML** - 2%
+- **JavaScript** - 98.1%
+- **HTML** - 1.6%
+- **CSS** - 0.3%
 
 ---
 
@@ -265,7 +271,7 @@ This is an **actively maintained learning repository**. I update it regularly as
 ## 💡 Tips for Using This Repo
 
 - **Start with simple components** like `Greeting.jsx` and `Counter.jsx`
-- **Explore the Task List App** in `App.jsx` to see how components work together
+- **Explore the Task List App** in `src/App.jsx` (currently commented out) to see how components work together
 - **Read the code comments** - I often note what concept each component demonstrates
 - **Experiment!** Try modifying components, adding new features, or combining them
 - **Follow the progression** - Components get progressively more complex
@@ -274,7 +280,7 @@ This is an **actively maintained learning repository**. I update it regularly as
 
 ## 📝 Notes to Self
 
-This repo is messy by design—it's a learning space, not production code. The component files represent exercises I've completed and can revisit anytime. Don't be afraid to experiment, break things, and learn from the mistakes!
+This repo is a learning space by design. The component files represent exercises I've completed and can revisit anytime. Don't be afraid to experiment, break things, and rebuild them differently. That's how real learning happens!
 
 ---
 
