@@ -65,6 +65,8 @@ function App() {
 import WindowWidth from "./components/WindowWidth";
 import LiveClock from "./components/LiveClock"; */
 
+import UserDirectoryContainer from "./containers/UserDirectoryContainer";
+
 /* import UserDirectory from "./components/UserDirectory"; */
 
 /* import { useState } from "react";
@@ -231,7 +233,9 @@ import Navbar from "./components/Navbar"; */
     </>
   );
 } */
-function App(){
+function App() {
+  const theme = "light"
+  return <UserDirectoryContainer theme = {theme} />;
 }
 
 export default App;

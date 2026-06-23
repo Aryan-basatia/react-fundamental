@@ -1,12 +1,20 @@
 import { useEffect, useState } from "react";
-import Badge from "./Badge";
+import UserList from "../components/UserList";
 
-export default function UserDirectory() {
+export default function UserDirectoryContainer({theme}) {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [refresh, setRefresh] = useState(0);
   const [searchTerm, setSearchTerm] = useState("");
+
+  function handleChange(e) {
+    setSearchTerm(e.target.value);
+  }
+
+  function handleClick() {
+    setRefresh((prev) => prev + 1);
+  }
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -48,32 +56,12 @@ export default function UserDirectory() {
   if (error) return <p className="text-center text-red-500 mt-10">{error}</p>;
 
   return (
-    <div className="p-6 max-w-4xl mx-auto">
-      <input
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-        className="w-full border border-gray-300 rounded-md px-4 py-2 mb-6 focus:outline-none focus:ring-2 focus:ring-blue-500"
-      />
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {users
-          .filter((u) =>
-            u.name.toLowerCase().includes(searchTerm.toLowerCase()),
-          )
-          .map((u) => {
-            return (
-              <div
-                key={u.id}
-                className="bg-white rounded-lg shadow-md p-6 flex flex-col gap-2"
-              >
-                <h2 className="text-lg font-bold text-gray-800">{u.name}</h2>
-                <p className="text-sm text-gray-500">{u.email}</p>
-                <p className="text-sm text-gray-500">{u.company.name}</p>
-                <Badge label={u.address.city} color="blue" />
-              </div>
-            );
-          })}
-      </div>
-      <button onClick={() => setRefresh((prev) => prev + 1)}>Refresh</button>
-    </div>
+    <UserList
+      users={users}
+      searchTerm={searchTerm}
+      onChange={handleChange}
+      onClick={handleClick}
+      theme = {theme}
+    />
   );
 }
