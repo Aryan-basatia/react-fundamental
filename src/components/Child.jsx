@@ -5,6 +5,7 @@ function Child({ name,handleClick }) {
   return (
     <div>
       <p>{name}</p>
+      <button onClick={handleClick}>click</button>
     </div>
   );
 }
