@@ -237,6 +237,10 @@ import Navbar from "./components/Navbar"; */
   const theme = "light"
   return <UserDirectoryContainer theme = {theme} />;
 } */
-function App() {}
+import CounterReducer from "./components/CounterReducer";
+
+function App() {
+  return <CounterReducer />;
+}
 
 export default App;
